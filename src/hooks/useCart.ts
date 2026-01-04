@@ -5,6 +5,8 @@ export const useCart = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
+
+
   const calculateItemPrice = (item: MenuItem, variation?: Variation, addOns?: AddOn[]) => {
     let price = item.basePrice;
     if (variation) {
@@ -14,13 +16,21 @@ export const useCart = () => {
       addOns.forEach(addOn => {
         price += addOn.price;
       });
+
+      // Special rule for Chicken Poppers: +10 if 2 or more flavors
+      if (item.name === 'Chicken Poppers') {
+        const flavorCount = addOns.filter(a => a.category === 'Flavor').length;
+        if (flavorCount >= 2) {
+          price += 10;
+        }
+      }
     }
     return price;
   };
 
   const addToCart = useCallback((item: MenuItem, quantity: number = 1, variation?: Variation, addOns?: AddOn[]) => {
     const totalPrice = calculateItemPrice(item, variation, addOns);
-    
+
     // Group add-ons by name and sum their quantities
     const groupedAddOns = addOns?.reduce((groups, addOn) => {
       const existing = groups.find(g => g.id === addOn.id);
@@ -31,14 +41,14 @@ export const useCart = () => {
       }
       return groups;
     }, [] as (AddOn & { quantity: number })[]);
-    
+
     setCartItems(prev => {
-      const existingItem = prev.find(cartItem => 
-        cartItem.id === item.id && 
+      const existingItem = prev.find(cartItem =>
+        cartItem.id === item.id &&
         cartItem.selectedVariation?.id === variation?.id &&
         JSON.stringify(cartItem.selectedAddOns?.map(a => `${a.id}-${a.quantity || 1}`).sort()) === JSON.stringify(groupedAddOns?.map(a => `${a.id}-${a.quantity}`).sort())
       );
-      
+
       if (existingItem) {
         return prev.map(cartItem =>
           cartItem === existingItem
@@ -47,7 +57,7 @@ export const useCart = () => {
         );
       } else {
         const uniqueId = `${item.id}-${variation?.id || 'default'}-${addOns?.map(a => a.id).join(',') || 'none'}`;
-        return [...prev, { 
+        return [...prev, {
           ...item,
           id: uniqueId,
           quantity,
@@ -64,7 +74,7 @@ export const useCart = () => {
       removeFromCart(id);
       return;
     }
-    
+
     setCartItems(prev =>
       prev.map(item =>
         item.id === id ? { ...item, quantity } : item
