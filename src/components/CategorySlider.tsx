@@ -88,7 +88,7 @@ const CategorySlider: React.FC<CategorySliderProps> = ({
                                 }`}
                         >
 
-                            <span className={`text-sm font-medium text-center leading-tight ${selectedCategory === category.id ? 'text-white' : 'text-cafe-brown'
+                            <span className={`text-sm font-agrandir font-bold text-center leading-tight ${selectedCategory === category.id ? 'text-white' : 'text-cafe-brown'
                                 }`}>
                                 {category.name}
                             </span>

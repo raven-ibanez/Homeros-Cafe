@@ -257,7 +257,7 @@ const AdminDashboard: React.FC = () => {
             <div className="mx-auto w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-4">
               <Lock className="h-8 w-8 text-white" />
             </div>
-            <h1 className="text-2xl font-playfair font-semibold text-black">Admin Access</h1>
+            <h1 className="text-2xl font-agrandir font-black text-black">Admin Access</h1>
             <p className="text-gray-600 mt-2">Enter password to access the admin dashboard</p>
           </div>
 
@@ -315,7 +315,7 @@ const AdminDashboard: React.FC = () => {
                   <ArrowLeft className="h-5 w-5" />
                   <span>Back</span>
                 </button>
-                <h1 className="text-2xl font-playfair font-semibold text-black">
+                <h1 className="text-2xl font-agrandir font-black text-black">
                   {currentView === 'add' ? 'Add New Item' : 'Edit Item'}
                 </h1>
               </div>
@@ -404,7 +404,7 @@ const AdminDashboard: React.FC = () => {
 
             {/* Discount Pricing Section */}
             <div className="mb-8">
-              <h3 className="text-lg font-playfair font-medium text-black mb-4">Discount Pricing</h3>
+              <h3 className="text-lg font-agrandir font-black text-black mb-4">Discount Pricing</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-black mb-2">Discount Price</label>
@@ -475,7 +475,7 @@ const AdminDashboard: React.FC = () => {
             {/* Variations Section */}
             <div className="mb-8">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-playfair font-medium text-black">Size Variations</h3>
+                <h3 className="text-lg font-agrandir font-black text-black">Size Variations</h3>
                 <button
                   onClick={addVariation}
                   className="flex items-center space-x-2 px-3 py-2 bg-cream-100 text-black rounded-lg hover:bg-cream-200 transition-colors duration-200"
@@ -514,7 +514,7 @@ const AdminDashboard: React.FC = () => {
             {/* Add-ons Section */}
             <div className="mb-8">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-playfair font-medium text-black">Add-ons</h3>
+                <h3 className="text-lg font-agrandir font-black text-black">Add-ons</h3>
                 <button
                   onClick={addAddOn}
                   className="flex items-center space-x-2 px-3 py-2 bg-cream-100 text-black rounded-lg hover:bg-cream-200 transition-colors duration-200"
@@ -560,7 +560,7 @@ const AdminDashboard: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 
@@ -579,7 +579,7 @@ const AdminDashboard: React.FC = () => {
                   <ArrowLeft className="h-5 w-5" />
                   <span>Dashboard</span>
                 </button>
-                <h1 className="text-2xl font-playfair font-semibold text-black">Menu Items</h1>
+                <h1 className="text-2xl font-agrandir font-black text-black">Menu Items</h1>
               </div>
               <div className="flex items-center space-x-3">
                 {showBulkActions && (

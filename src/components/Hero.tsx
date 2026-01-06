@@ -4,11 +4,11 @@ const Hero: React.FC = () => {
   return (
     <section className="relative bg-gradient-to-br from-cafe-cream to-white py-20 px-4">
       <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-5xl md:text-6xl font-noto-kr font-semibold text-cafe-brown mb-6 animate-fade-in">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-agrandir font-black text-cafe-brown mb-6 animate-fade-in">
           Artisan Brews, Comforting Bites
           <span className="block text-cafe-accent mt-2">Homeros Cafe</span>
         </h1>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto animate-slide-up">
+        <p className="text-xl font-agrandir font-normal text-gray-600 mb-8 max-w-2xl mx-auto animate-slide-up">
           Exceptional coffee, freshly baked pastries, and a warm atmosphere.
         </p>
         <div className="flex justify-center">
