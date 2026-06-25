@@ -8,7 +8,7 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/((?!assets/|api/|logo.jpg|favicon.ico).*)" ,
+      "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
   ]
