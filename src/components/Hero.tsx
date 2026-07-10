@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative bg-gradient-to-br from-cafe-cream to-white py-20 px-4">
+    <section className="relative bg-cafe-cream py-20 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-agrandir font-black text-cafe-brown mb-6 animate-fade-in">
           Artisan Brews, Comforting Bites

@@ -201,7 +201,7 @@ Please confirm this order to proceed. Thank you for choosing Homeros Cafe! 🥟
                       type="button"
                       onClick={() => setServiceType(option.value as ServiceType)}
                       className={`p-4 rounded-lg border-2 transition-all duration-200 ${serviceType === option.value
-                        ? 'border-cafe-accent bg-cafe-accent text-white'
+                        ? 'border-cafe-accent bg-cafe-accent text-cafe-btn-text'
                         : 'border-gray-200 bg-white text-gray-700 hover:border-cafe-accent/50'
                         }`}
                     >
@@ -268,7 +268,7 @@ Please confirm this order to proceed. Thank you for choosing Homeros Cafe! 🥟
                           type="button"
                           onClick={() => setPickupTime(option.value)}
                           className={`p-3 rounded-lg border-2 transition-all duration-200 text-sm ${pickupTime === option.value
-                            ? 'border-cafe-accent bg-cafe-accent text-white'
+                            ? 'border-cafe-accent bg-cafe-accent text-cafe-btn-text'
                             : 'border-gray-200 bg-white text-gray-700 hover:border-cafe-accent/50'
                             }`}
                         >
@@ -336,7 +336,7 @@ Please confirm this order to proceed. Thank you for choosing Homeros Cafe! 🥟
                 onClick={handleProceedToPayment}
                 disabled={!isDetailsValid}
                 className={`w-full py-4 rounded-xl font-medium text-lg transition-all duration-200 transform ${isDetailsValid
-                  ? 'bg-cafe-accent text-white hover:bg-cafe-brown hover:scale-[1.02]'
+                  ? 'bg-cafe-accent text-cafe-btn-text hover:bg-cafe-brown hover:scale-[1.02]'
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                   }`}
               >
@@ -375,7 +375,7 @@ Please confirm this order to proceed. Thank you for choosing Homeros Cafe! 🥟
                 type="button"
                 onClick={() => setPaymentMethod(method.id as PaymentMethod)}
                 className={`p-4 rounded-lg border-2 transition-all duration-200 flex items-center space-x-3 ${paymentMethod === method.id
-                  ? 'border-cafe-accent bg-cafe-accent text-white'
+                  ? 'border-cafe-accent bg-cafe-accent text-cafe-btn-text'
                   : 'border-gray-200 bg-white text-gray-700 hover:border-cafe-accent/50'
                   }`}
               >
@@ -492,7 +492,7 @@ Please confirm this order to proceed. Thank you for choosing Homeros Cafe! 🥟
 
           <button
             onClick={handlePlaceOrder}
-            className="w-full py-4 rounded-xl font-medium text-lg transition-all duration-200 transform bg-cafe-accent text-white hover:bg-cafe-brown hover:scale-[1.02]"
+            className="w-full py-4 rounded-xl font-medium text-lg transition-all duration-200 transform bg-cafe-accent text-cafe-btn-text hover:bg-cafe-brown hover:scale-[1.02]"
           >
             Place Order via Messenger
           </button>

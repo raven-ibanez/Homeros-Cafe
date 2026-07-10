@@ -5,18 +5,23 @@ export default {
     extend: {
       colors: {
         cafe: {
-          brown: '#111111', // Rich Black
-          gold: '#666666',  // Medium Grey
-          cream: '#F9F9F9', // Off-white/Light Grey
-          beige: '#E5E5E5', // Light Grey
-          green: '#333333', // Dark Grey (Success)
-          dark: '#000000',  // Pure Black
-          accent: '#000000', // Black
-          charcoal: '#1A1A1A' // Dark Grey
+          brown: 'var(--color-cafe-brown, #3B2D26)',
+          gold: 'var(--color-cafe-gold, #B08D57)',
+          cream: 'var(--color-cafe-cream, #F5F1E8)',
+          beige: 'var(--color-cafe-beige, #E2DCCE)',
+          green: 'var(--color-cafe-green, #4E5D3A)',
+          dark: 'var(--color-cafe-dark, #3B2D26)',
+          accent: 'var(--color-cafe-accent, #4E5D3A)',
+          charcoal: 'var(--color-cafe-charcoal, #2C201A)',
+          clay: 'var(--color-cafe-clay, #B86E4B)',
+          'btn-text': 'var(--color-cafe-btn-text, #FFFFFF)'
         }
       },
       fontFamily: {
-        'agrandir': ['Agrandir', 'sans-serif'],
+        'agrandir': ['"Cormorant Garamond"', 'serif'],
+        'inter': ['Manrope', 'sans-serif'],
+        'cormorant': ['"Cormorant Garamond"', 'serif'],
+        'manrope': ['Manrope', 'sans-serif']
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

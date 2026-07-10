@@ -30,7 +30,7 @@ const Cart: React.FC<CartProps> = ({
           <p className="text-gray-600 mb-6">Add some delicious items to get started!</p>
           <button
             onClick={onContinueShopping}
-            className="bg-cafe-accent text-white px-6 py-3 rounded-full hover:bg-cafe-brown transition-all duration-200"
+            className="bg-cafe-accent text-cafe-btn-text px-6 py-3 rounded-full hover:bg-cafe-brown transition-all duration-200"
           >
             Browse Menu
           </button>
@@ -49,8 +49,8 @@ const Cart: React.FC<CartProps> = ({
           <ArrowLeft className="h-5 w-5" />
           <span>Continue Shopping</span>
         </button>
-        <h1 className="text-3xl font-playfair font-semibold text-black">Your Cart</h1>
-        <h1 className="text-3xl font-noto font-semibold text-black">Your Cart</h1>
+
+
         <button
           onClick={clearCart}
           className="text-cafe-accent hover:text-cafe-brown transition-colors duration-200"
@@ -121,7 +121,7 @@ const Cart: React.FC<CartProps> = ({
 
         <button
           onClick={onCheckout}
-          className="w-full bg-cafe-accent text-white py-4 rounded-xl hover:bg-cafe-brown transition-all duration-200 transform hover:scale-[1.02] font-medium text-lg"
+          className="w-full bg-cafe-accent text-cafe-btn-text py-4 rounded-xl hover:bg-cafe-brown transition-all duration-200 transform hover:scale-[1.02] font-medium text-lg"
         >
           Proceed to Checkout
         </button>
