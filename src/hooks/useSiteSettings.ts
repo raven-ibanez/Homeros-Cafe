@@ -99,7 +99,14 @@ export const useSiteSettings = () => {
         color_cafe_gold: data.find(s => s.id === 'color_cafe_gold')?.value || '#B08D57',
         color_cafe_beige: data.find(s => s.id === 'color_cafe_beige')?.value || '#E2DCCE',
         color_cafe_clay: data.find(s => s.id === 'color_cafe_clay')?.value || '#B86E4B',
-        color_cafe_btn_text: data.find(s => s.id === 'color_cafe_btn_text')?.value || '#FFFFFF'
+        color_cafe_btn_text: data.find(s => s.id === 'color_cafe_btn_text')?.value || '#FFFFFF',
+        font_heading: data.find(s => s.id === 'font_heading')?.value || 'Cormorant Garamond',
+        font_body: data.find(s => s.id === 'font_body')?.value || 'Manrope',
+        font_menu: data.find(s => s.id === 'font_menu')?.value || 'Cormorant Garamond',
+        landing_hero_badge: data.find(s => s.id === 'landing_hero_badge')?.value || 'Premium Specialty Cafe',
+        landing_hero_quote: data.find(s => s.id === 'landing_hero_quote')?.value || '"The perfect blend of flavor and atmosphere."',
+        landing_hero_quote_author: data.find(s => s.id === 'landing_hero_quote_author')?.value || '— Homeros Signature Experience',
+        landing_promo_image: data.find(s => s.id === 'landing_promo_image')?.value || 'https://images.unsplash.com/photo-1507133750040-4a8f57021571?q=80&w=800'
       };
 
       setSiteSettings(settings);

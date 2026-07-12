@@ -151,28 +151,27 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
               {Math.round(((item.basePrice - item.discountPrice) / item.basePrice) * 100)}% OFF
             </div>
           )}
-        </div>
-
-        {/* Content */}
+        </div>        {/* Content */}
         <div className="p-3">
           <div className="flex items-start justify-between mb-3">
-            <h4 className="text-sm font-agrandir font-medium text-gray-900 leading-tight flex-1 pr-1">{item.name}</h4>
+            <h4 className="text-sm font-menu font-medium text-gray-900 leading-tight flex-1 pr-1">{item.name}</h4>
             {item.variations && item.variations.length > 0 && (
               <div className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full whitespace-nowrap">
                 {item.variations.length} sizes
               </div>
             )}
           </div>
-
-          <p className={`text-xs font-agrandir font-normal mb-3 leading-relaxed line-clamp-2 ${!item.available ? 'text-gray-400' : 'text-gray-600'}`}>
+ 
+          <p className={`text-xs font-menu font-normal mb-3 leading-relaxed line-clamp-2 ${!item.available ? 'text-gray-400' : 'text-gray-600'}`}>
             {!item.available ? 'Currently Unavailable' : item.description}
-          </p>          {/* Pricing Section (Responsive vertical stack on mobile, row on desktop) */}
+          </p>
+          {/* Pricing Section (Responsive vertical stack on mobile, row on desktop) */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
             <div className="flex-1">
               {item.isOnDiscount && item.discountPrice ? (
                 <div className="space-y-1">
                   <div className="flex items-center space-x-2">
-                    <span className="text-2xl font-agrandir font-bold text-cafe-accent">
+                    <span className="text-2xl font-menu font-bold text-cafe-accent">
                       ₱{item.discountPrice.toFixed(2)}
                     </span>
                     <span className="text-sm text-gray-500 line-through">
@@ -184,7 +183,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
                   </div>
                 </div>
               ) : (
-                <div className="text-lg font-agrandir font-bold text-gray-900">
+                <div className="text-lg font-menu font-bold text-gray-900">
                   ₱{item.basePrice.toFixed(2)}
                 </div>
               )}

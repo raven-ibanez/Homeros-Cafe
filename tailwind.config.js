@@ -18,10 +18,12 @@ export default {
         }
       },
       fontFamily: {
-        'agrandir': ['"Cormorant Garamond"', 'serif'],
-        'inter': ['Manrope', 'sans-serif'],
-        'cormorant': ['"Cormorant Garamond"', 'serif'],
-        'manrope': ['Manrope', 'sans-serif']
+        'agrandir': ['var(--font-headings, "Cormorant Garamond")', 'serif'],
+        'inter': ['var(--font-body, "Manrope")', 'sans-serif'],
+        'cormorant': ['var(--font-headings, "Cormorant Garamond")', 'serif'],
+        'manrope': ['var(--font-body, "Manrope")', 'sans-serif'],
+        'noto': ['var(--font-headings, "Cormorant Garamond")', 'serif'],
+        'menu': ['var(--font-menu, "Cormorant Garamond")', 'serif']
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

@@ -40,7 +40,7 @@ const LandingPage: React.FC<LandingPageProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 md:space-y-8 animate-slide-up text-center lg:text-left reveal">
             <div className="inline-flex items-center space-x-2 bg-cafe-beige/40 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-cafe-gold">
-              <span>Premium Specialty Cafe</span>
+              <span>{siteSettings?.landing_hero_badge || "Premium Specialty Cafe"}</span>
             </div>
             <h1 className="text-4xl md:text-7xl font-agrandir font-black tracking-tight text-cafe-dark leading-tight whitespace-pre-line">
               {siteSettings?.landing_hero_title || "Artisan Brews &\nComforting Bites"}
@@ -73,8 +73,8 @@ const LandingPage: React.FC<LandingPageProps> = ({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-cafe-dark/30 via-transparent to-transparent" />
             <div className="hidden md:block absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-xl border border-cafe-beige/50 shadow-lg">
-              <p className="text-cafe-dark font-agrandir font-bold text-lg">"The perfect blend of flavor and atmosphere."</p>
-              <p className="text-gray-500 text-sm mt-1">— Homeros Signature Experience</p>
+              <p className="text-cafe-dark font-agrandir font-bold text-lg">{siteSettings?.landing_hero_quote || "\"The perfect blend of flavor and atmosphere.\""}</p>
+              <p className="text-gray-500 text-sm mt-1">{siteSettings?.landing_hero_quote_author || "— Homeros Signature Experience"}</p>
             </div>
           </div>
         </div>
@@ -227,7 +227,7 @@ const LandingPage: React.FC<LandingPageProps> = ({
       <section className="bg-cafe-brown text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-15">
           <img
-            src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?q=80&w=800"
+            src={siteSettings?.landing_promo_image || "https://images.unsplash.com/photo-1507133750040-4a8f57021571?q=80&w=800"}
             alt="Coffee details"
             className="w-full h-full object-cover"
           />

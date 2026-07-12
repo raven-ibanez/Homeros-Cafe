@@ -33,6 +33,12 @@ const SiteSettingsManager: React.FC = () => {
     color_cafe_beige: '',
     color_cafe_clay: '',
     color_cafe_btn_text: '',
+    font_heading: '',
+    font_body: '',
+    font_menu: '',
+    landing_hero_badge: '',
+    landing_hero_quote: '',
+    landing_hero_quote_author: '',
     
     landing_hero_title: '',
     landing_hero_subtitle: '',
@@ -99,6 +105,9 @@ const SiteSettingsManager: React.FC = () => {
   const [heroFile, setHeroFile] = useState<File | null>(null);
   const [heroPreview, setHeroPreview] = useState<string>('');
 
+  const [promoFile, setPromoFile] = useState<File | null>(null);
+  const [promoPreview, setPromoPreview] = useState<string>('');
+
   const [about1File, setAbout1File] = useState<File | null>(null);
   const [about1Preview, setAbout1Preview] = useState<string>('');
 
@@ -148,6 +157,13 @@ const SiteSettingsManager: React.FC = () => {
         color_cafe_gold: siteSettings.color_cafe_gold || '#B08D57',
         color_cafe_beige: siteSettings.color_cafe_beige || '#E2DCCE',
         color_cafe_clay: siteSettings.color_cafe_clay || '#B86E4B',
+        color_cafe_btn_text: siteSettings.color_cafe_btn_text || '#FFFFFF',
+        font_heading: siteSettings.font_heading || 'Cormorant Garamond',
+        font_body: siteSettings.font_body || 'Manrope',
+        font_menu: siteSettings.font_menu || 'Cormorant Garamond',
+        landing_hero_badge: siteSettings.landing_hero_badge || '',
+        landing_hero_quote: siteSettings.landing_hero_quote || '',
+        landing_hero_quote_author: siteSettings.landing_hero_quote_author || '',
         
         landing_hero_title: siteSettings.landing_hero_title || '',
         landing_hero_subtitle: siteSettings.landing_hero_subtitle || '',
@@ -205,6 +221,7 @@ const SiteSettingsManager: React.FC = () => {
       });
       setLogoPreview(siteSettings.site_logo || '');
       setHeroPreview(siteSettings.landing_hero_image || '');
+      setPromoPreview(siteSettings.landing_promo_image || '');
       setAbout1Preview(siteSettings.about_story_image_1 || '');
       setAbout2Preview(siteSettings.about_story_image_2 || '');
       setAbout3Preview(siteSettings.about_story_image_3 || '');
@@ -304,6 +321,7 @@ const SiteSettingsManager: React.FC = () => {
     try {
       let finalLogoUrl = logoPreview;
       let finalHeroUrl = heroPreview;
+      let finalPromoBgUrl = promoPreview;
       let finalAbout1Url = about1Preview;
       let finalAbout2Url = about2Preview;
       let finalService1Url = service1Preview;
@@ -318,6 +336,11 @@ const SiteSettingsManager: React.FC = () => {
       // Upload hero image if selected
       if (heroFile) {
         finalHeroUrl = await uploadImage(heroFile, 'landing-hero');
+      }
+
+      // Upload promo bg if selected
+      if (promoFile) {
+        finalPromoBgUrl = await uploadImage(promoFile, 'landing-promo-bg');
       }
 
       // Upload about 1 image if selected
@@ -418,6 +441,12 @@ const SiteSettingsManager: React.FC = () => {
         color_cafe_beige: formData.color_cafe_beige,
         color_cafe_clay: formData.color_cafe_clay,
         color_cafe_btn_text: formData.color_cafe_btn_text,
+        font_heading: formData.font_heading,
+        font_body: formData.font_body,
+        font_menu: formData.font_menu,
+        landing_hero_badge: formData.landing_hero_badge,
+        landing_hero_quote: formData.landing_hero_quote,
+        landing_hero_quote_author: formData.landing_hero_quote_author,
         
         landing_hero_title: formData.landing_hero_title,
         landing_hero_subtitle: formData.landing_hero_subtitle,
@@ -437,6 +466,7 @@ const SiteSettingsManager: React.FC = () => {
         
         landing_promo_title: formData.landing_promo_title,
         landing_promo_subtitle: formData.landing_promo_subtitle,
+        landing_promo_image: finalPromoBgUrl,
         
         about_story_title_1: formData.about_story_title_1,
         about_story_body_1: formData.about_story_body_1,
@@ -489,6 +519,7 @@ const SiteSettingsManager: React.FC = () => {
       setIsEditing(false);
       setLogoFile(null);
       setHeroFile(null);
+      setPromoFile(null);
       setAbout1File(null);
       setAbout2File(null);
       setService1File(null);
@@ -522,6 +553,13 @@ const SiteSettingsManager: React.FC = () => {
         color_cafe_gold: siteSettings.color_cafe_gold || '#B08D57',
         color_cafe_beige: siteSettings.color_cafe_beige || '#E2DCCE',
         color_cafe_clay: siteSettings.color_cafe_clay || '#B86E4B',
+        color_cafe_btn_text: siteSettings.color_cafe_btn_text || '#FFFFFF',
+        font_heading: siteSettings.font_heading || 'Cormorant Garamond',
+        font_body: siteSettings.font_body || 'Manrope',
+        font_menu: siteSettings.font_menu || 'Cormorant Garamond',
+        landing_hero_badge: siteSettings.landing_hero_badge || '',
+        landing_hero_quote: siteSettings.landing_hero_quote || '',
+        landing_hero_quote_author: siteSettings.landing_hero_quote_author || '',
         
         landing_hero_title: siteSettings.landing_hero_title || '',
         landing_hero_subtitle: siteSettings.landing_hero_subtitle || '',
@@ -579,6 +617,7 @@ const SiteSettingsManager: React.FC = () => {
       });
       setLogoPreview(siteSettings.site_logo || '');
       setHeroPreview(siteSettings.landing_hero_image || '');
+      setPromoPreview(siteSettings.landing_promo_image || '');
       setAbout1Preview(siteSettings.about_story_image_1 || '');
       setAbout2Preview(siteSettings.about_story_image_2 || '');
       setAbout3Preview(siteSettings.about_story_image_3 || '');
@@ -616,6 +655,7 @@ const SiteSettingsManager: React.FC = () => {
     setIsEditing(false);
     setLogoFile(null);
     setHeroFile(null);
+    setPromoFile(null);
     setAbout1File(null);
     setAbout2File(null);
     setAbout3File(null);
@@ -916,6 +956,82 @@ const SiteSettingsManager: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* Fonts Picker Section */}
+            <div className="border-t border-gray-100 pt-6 space-y-4">
+              <h3 className="font-bold text-black text-base">Website Fonts</h3>
+              <p className="text-xs text-gray-500">Choose custom fonts for headings and body content across the website.</p>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Heading Font */}
+                <div className="border p-4 rounded-xl space-y-2">
+                  <label className="block text-xs font-semibold text-gray-500">Heading Font</label>
+                  <select
+                    name="font_heading"
+                    value={formData.font_heading}
+                    disabled={!isEditing}
+                    onChange={handleInputChange}
+                    className="w-full bg-white border border-gray-200 rounded-lg p-2 text-sm text-black focus:outline-none focus:ring-2 focus:ring-cafe-accent disabled:bg-gray-50 disabled:text-gray-500"
+                  >
+                    <option value="Cormorant Garamond">Cormorant Garamond (Elegant Serif)</option>
+                    <option value="Playfair Display">Playfair Display (Classic Serif)</option>
+                    <option value="Lora">Lora (Modern Serif)</option>
+                    <option value="Cinzel">Cinzel (Cinematic Serif)</option>
+                    <option value="Manrope">Manrope (Modern Sans)</option>
+                    <option value="Inter">Inter (Clean Sans)</option>
+                    <option value="Poppins">Poppins (Geometric Sans)</option>
+                    <option value="Montserrat">Montserrat (Stylish Sans)</option>
+                    <option value="Outfit">Outfit (Minimalist Sans)</option>
+                  </select>
+                  <span className="text-xs text-gray-400 block pt-1">Used for headers, banners, and section titles.</span>
+                </div>
+
+                {/* Body Font */}
+                <div className="border p-4 rounded-xl space-y-2">
+                  <label className="block text-xs font-semibold text-gray-500">Body Font</label>
+                  <select
+                    name="font_body"
+                    value={formData.font_body}
+                    disabled={!isEditing}
+                    onChange={handleInputChange}
+                    className="w-full bg-white border border-gray-200 rounded-lg p-2 text-sm text-black focus:outline-none focus:ring-2 focus:ring-cafe-accent disabled:bg-gray-50 disabled:text-gray-500"
+                  >
+                    <option value="Manrope">Manrope (Modern Sans)</option>
+                    <option value="Inter">Inter (Clean Sans)</option>
+                    <option value="Roboto">Roboto (Standard Sans)</option>
+                    <option value="Poppins">Poppins (Geometric Sans)</option>
+                    <option value="Montserrat">Montserrat (Stylish Sans)</option>
+                    <option value="Open Sans">Open Sans (Highly Readable)</option>
+                    <option value="Outfit">Outfit (Minimalist Sans)</option>
+                    <option value="Lora">Lora (Elegant Serif)</option>
+                  </select>
+                  <span className="text-xs text-gray-400 block pt-1">Used for paragraphs, descriptions, and site details.</span>
+                </div>
+
+                {/* Menu Font */}
+                <div className="border p-4 rounded-xl space-y-2">
+                  <label className="block text-xs font-semibold text-gray-500">Menu Card Font</label>
+                  <select
+                    name="font_menu"
+                    value={formData.font_menu}
+                    disabled={!isEditing}
+                    onChange={handleInputChange}
+                    className="w-full bg-white border border-gray-200 rounded-lg p-2 text-sm text-black focus:outline-none focus:ring-2 focus:ring-cafe-accent disabled:bg-gray-50 disabled:text-gray-500"
+                  >
+                    <option value="Cormorant Garamond">Cormorant Garamond (Elegant Serif)</option>
+                    <option value="Playfair Display">Playfair Display (Classic Serif)</option>
+                    <option value="Lora">Lora (Modern Serif)</option>
+                    <option value="Cinzel">Cinzel (Cinematic Serif)</option>
+                    <option value="Manrope">Manrope (Modern Sans)</option>
+                    <option value="Inter">Inter (Clean Sans)</option>
+                    <option value="Poppins">Poppins (Geometric Sans)</option>
+                    <option value="Montserrat">Montserrat (Stylish Sans)</option>
+                    <option value="Outfit">Outfit (Minimalist Sans)</option>
+                  </select>
+                  <span className="text-xs text-gray-400 block pt-1">Used for product cards (names, prices, descriptions).</span>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
@@ -959,6 +1075,34 @@ const SiteSettingsManager: React.FC = () => {
                 ) : (
                   <p className="text-gray-600">{siteSettings?.landing_hero_subtitle}</p>
                 )}
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Hero Preheader Badge</label>
+                {isEditing ? (
+                  <input type="text" name="landing_hero_badge" value={formData.landing_hero_badge} onChange={handleInputChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none" />
+                ) : (
+                  <p className="text-black">{siteSettings?.landing_hero_badge}</p>
+                )}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border border-gray-100 p-4 rounded-xl">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-500 mb-1">Hero Image Quote</label>
+                  {isEditing ? (
+                    <input type="text" name="landing_hero_quote" value={formData.landing_hero_quote} onChange={handleInputChange} className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:outline-none" />
+                  ) : (
+                    <p className="italic text-black">{siteSettings?.landing_hero_quote}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-500 mb-1">Hero Image Quote Author / Label</label>
+                  {isEditing ? (
+                    <input type="text" name="landing_hero_quote_author" value={formData.landing_hero_quote_author} onChange={handleInputChange} className="w-full px-3 py-1.5 border border-gray-300 rounded-lg focus:outline-none" />
+                  ) : (
+                    <p className="text-gray-600">{siteSettings?.landing_hero_quote_author}</p>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -1110,6 +1254,23 @@ const SiteSettingsManager: React.FC = () => {
             {/* Promo Banner Section */}
             <div className="space-y-4">
               <h3 className="font-bold text-black text-base">Promo Banner</h3>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Promo Banner Background Image</label>
+                <div className="space-y-3">
+                  <div className="w-full h-48 rounded-xl overflow-hidden bg-gray-100 flex items-center justify-center border">
+                    {promoPreview ? <img src={promoPreview} alt="Promo BG" className="w-full h-full object-cover" /> : <div className="text-gray-400">No Image Uploaded</div>}
+                  </div>
+                  {isEditing && (
+                    <div>
+                      <input type="file" accept="image/*" onChange={(e) => handleFileChange(e, setPromoFile, setPromoPreview)} className="hidden" id="promo-upload" />
+                      <label htmlFor="promo-upload" className="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors cursor-pointer text-sm inline-flex items-center space-x-2 border">
+                        <Upload className="h-4 w-4" />
+                        <span>Upload Promo Image</span>
+                      </label>
+                    </div>
+                  )}
+                </div>
+              </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Promo Title</label>
                 {isEditing ? (

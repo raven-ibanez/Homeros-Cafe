@@ -160,6 +160,14 @@ const Services: React.FC<ServicesProps> = ({ siteSettings }) => {
           >
             Inquire Now
           </a>
+          <a
+            href="https://drive.google.com/file/d/1qyZD89uugL_Se2sDaLsNf608En1pXM8l/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-8 py-4 bg-cafe-accent text-white rounded-full font-bold uppercase tracking-wider hover:bg-cafe-gold transition-all duration-300 shadow-md hover:shadow-lg text-sm text-center"
+          >
+            Download Event Catalogue
+          </a>
         </div>
       </div>
 

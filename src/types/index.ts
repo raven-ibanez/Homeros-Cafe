@@ -155,4 +155,11 @@ export interface SiteSettings {
   color_cafe_beige?: string;
   color_cafe_clay?: string;
   color_cafe_btn_text?: string;
+  font_heading?: string;
+  font_body?: string;
+  font_menu?: string;
+  landing_hero_badge?: string;
+  landing_hero_quote?: string;
+  landing_hero_quote_author?: string;
+  landing_promo_image?: string;
 }

@@ -78,6 +78,28 @@ function MainApp() {
     };
   }, [location.pathname]);
 
+  // Load custom Google Fonts dynamically
+  React.useEffect(() => {
+    if (!siteSettings) return;
+    const headingFont = siteSettings.font_heading || 'Cormorant Garamond';
+    const bodyFont = siteSettings.font_body || 'Manrope';
+    const menuFont = siteSettings.font_menu || 'Cormorant Garamond';
+
+    const linkId = 'dynamic-google-fonts';
+    let linkElement = document.getElementById(linkId) as HTMLLinkElement;
+    if (!linkElement) {
+      linkElement = document.createElement('link');
+      linkElement.id = linkId;
+      linkElement.rel = 'stylesheet';
+      document.head.appendChild(linkElement);
+    }
+    
+    const formattedHeading = headingFont.replace(/\s+/g, '+');
+    const formattedBody = bodyFont.replace(/\s+/g, '+');
+    const formattedMenu = menuFont.replace(/\s+/g, '+');
+    linkElement.href = `https://fonts.googleapis.com/css2?family=${formattedHeading}:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=${formattedBody}:wght@200;300;400;500;600;700;800&family=${formattedMenu}:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap`;
+  }, [siteSettings?.font_heading, siteSettings?.font_body, siteSettings?.font_menu]);
+
   // Sync currentView with browser URL pathname
   let currentView: 'home' | 'menu' | 'services' | 'about' | 'contact' | 'cart' | 'checkout' = 'home';
   if (location.pathname === '/menu') currentView = 'menu';
@@ -113,7 +135,10 @@ function MainApp() {
     '--color-cafe-beige': siteSettings.color_cafe_beige || '#E2DCCE',
     '--color-cafe-clay': siteSettings.color_cafe_clay || '#B86E4B',
     '--color-cafe-btn-text': siteSettings.color_cafe_btn_text || '#FFFFFF',
-    '--color-cafe-charcoal': '#2C201A'
+    '--color-cafe-charcoal': '#2C201A',
+    '--font-headings': siteSettings.font_heading || 'Cormorant Garamond',
+    '--font-body': siteSettings.font_body || 'Manrope',
+    '--font-menu': siteSettings.font_menu || 'Cormorant Garamond',
   } as React.CSSProperties : undefined;
 
   return (
